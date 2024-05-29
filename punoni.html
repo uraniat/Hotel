@@ -1,0 +1,169 @@
+﻿<!doctype>
+<html>
+<head>
+<style>
+
+
+body {
+background-color: "#9b59b6;"
+}
+
+#dropFileForm {
+  margin: 16px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+
+  
+  transition: 0.5s;
+}
+
+#dropFileForm #fileLabel {
+  background-color:  #9b59b6;;
+  display: block;
+  padding: 16px;
+  position: relative;
+  cursor: pointer;
+}
+
+#dropFileForm #fileInput {
+  display: none;
+}
+
+#dropFileForm #fileLabel:after,
+#dropFileForm #fileLabel:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color:  #9b59b6;;
+  z-index: -2;
+  border-radius: 8px 8px 0 0;
+}
+
+#dropFileForm #fileLabel:before {
+  z-index: -1;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5%,
+    black 5%,
+    black 10%
+  );
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#dropFileForm.fileHover #fileLabel:before {
+  opacity: 0.25;
+}
+
+#dropFileForm .uploadButton {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  padding: 8px;
+  background-color:  #9b59b6;
+  color:  #9b59b6;
+  cursor: pointer;
+}
+
+#dropFileForm.fileHover {
+  box-shadow: 0 0 16px white;
+}
+
+</style>
+</head>
+
+<body>
+
+<form id="dropFileForm" action="http://localhost/upload.php" method="post" onsubmit="uploadFiles(event)">
+  <input type="file" name="files[]" id="fileInput" multiple onchange="addFiles(event)">
+
+  <label for="fileInput" id="fileLabel" ondragover="overrideDefault(event);fileHover();" ondragenter="overrideDefault(event);fileHover();" ondragleave="overrideDefault(event);fileHoverEnd();" ondrop="overrideDefault(event);fileHoverEnd();
+        addFiles(event);">
+    <i class="fa fa-download fa-5x"></i>
+    <br>
+    <span id="fileLabelText">
+      Vendosni CV tuaji dhe nje leter motivimim
+    </span>
+    <br>
+    <span id="uploadStatus"></span>
+  </label>
+
+ 
+<button onclick="myFunction()"  id="mySubmit" value="Submit" formtarget="Cv dhe letra juaj
+ e motivimit u uploduan me sukses!
+Ne ditet ne vijim do ju kontaktojme! &#128512"> Submit</button>
+ 
+</form>
+<p id="demo"></p>
+
+<script>
+
+var dropFileForm = document.getElementById("dropFileForm");
+var fileLabelText = document.getElementById("fileLabelText");
+var uploadStatus = document.getElementById("uploadStatus");
+var fileInput = document.getElementById("fileInput");
+var droppedFiles;
+
+function overrideDefault(event) {
+  event.preventDefault();
+  event.stopPropagation();
+}
+
+function fileHover() {
+  dropFileForm.classList.add("fileHover");
+}
+
+function fileHoverEnd() {
+  dropFileForm.classList.remove("fileHover");
+}
+
+function addFiles(event) {
+  droppedFiles = event.target.files || event.dataTransfer.files;
+  showFiles(droppedFiles);
+}
+
+function showFiles(files) {
+  if (files.length > 1) {
+    fileLabelText.innerText = files.length + " files selected";
+  } else {
+    fileLabelText.innerText = files[0].name;
+  }
+}
+
+function uploadFiles(event) {
+  event.preventDefault();
+  changeStatus("Uploading...");
+
+  var formData = new FormData();
+
+  for (var i = 0, file; (file = droppedFiles[i]); i++) {
+    formData.append(fileInput.name, file, file.name);
+  }
+
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function(data) {
+    //handle server response and change status of
+    //upload process via changeStatus(text)
+    console.log(xhr.response);
+  };
+  xhr.open(dropFileForm.method, dropFileForm.action, true);
+  xhr.send(formData);
+}
+
+function changeStatus(text) {
+  uploadStatus.innerText = text;
+}
+
+function myFunction() {
+  var x = document.getElementById("mySubmit").formTarget;
+  document.getElementById("demo").innerHTML = x;
+}
+
+
+</script>
+<body>

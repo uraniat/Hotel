@@ -1,0 +1,145 @@
+﻿body{
+    font-size:20px;/* Vendos madhësinë bazë të shkronjave për trupin në 20 piksel për të përmirësuar lexueshmërinë. */
+    font-family:Bookman, serif; /* Përdor 'Bookman' si tiparin kryesor, duke u mbështetur në çdo tipar serif në dispozicion nëse Bookman nuk është i disponueshëm. */
+    font-weight:bold; /* Aplikon stilim të trashë për të gjithë tekstin brenda trupit, duke e bërë atë të dallohet më shumë. */
+    background-image: url('../img/bodyImg.jpg');/* Vendos një imazh të caktuar si sfond, i vendosur në dosjen 'img' një nivel më lart se skedari CSS. */
+    background-repeat: no-repeat; /* Siguron që imazhi i sfondit të mos përsëritet dhe të shfaqet vetëm një herë. */
+    background-attachment: fixed; /* Mban imazhin e sfondit të fiksuar gjatë lëvizjes me faqen, duke krijuar një efekt paralaks. */
+    background-size: 100% 100%;/* Zgjat imazhin e sfondit për të mbuluar plotësisht elementin trup, duke u përshtatur në gjerësi dhe lartësi. */}
+
+
+#tab{
+    width: 100%;/* Cakton gjerësinë e elementit për të zënë 100% të gjerësisë së kontejnerit prind, duke siguruar që ai të shtrihet në gjithë hapësirën horizontale në dispozicion. */
+    border-collapse: collapse;/* Bashkon kufijtë mes qelizave në tabelë, duke rezultuar në një kufi të vetëm, të fortë nëse është tabelë. Ky atribut zakonisht përdoret për të bërë kufijtë e tabelave të duken më të pastra dhe më të lidhura. */
+    padding: 0px;/* Heq çdo mbushje brenda elementit, duke siguruar që përmbajtja brenda tij të prekë direkt kufirin e elementit, që lejon kontroll të saktë të planifikimit. */
+}
+
+.blue_button{
+box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);/* Aplikon hije kutie me efekte të brendshme dhe të jashtme për të krijuar ndjenjën e thellësisë. */
+background-color: #468CD2; /* Cakton një ngjyrë të kaltër si ngjyrën e sfondit të butonit. */
+background-color: #468CD2;
+text-shadow: 1px 1px 0 #214D73;/* Shton hije tekstit për të përmirësuar lexueshmërinë duke i dhënë dimension tekstit. */
+border-radius: 8px;/* Bën këndet e butonit të rrumbullakëta për estetikë të përmirësuar. */
+color: #FFFFFF;/* Vendos ngjyrën e tekstit në të bardhë për kontrast të lartë me sfondin blu. */
+cursor: pointer;/* Bën që kursori të ndryshojë në formën e një pointeri kur është mbi buton, duke treguar që është i klikueshëm. */
+font-size: 21px;/* Përcakton madhësinë e tekstit të butonit, e cila është më e madhe për të tërhequr vëmendjen. */
+font-weight: bold;/* Bën tekstin më të trashë, duke e bërë atë më të spikatur. */
+margin: 10px 0;/* Vendos një hapësirë vertikale përreth butonit për të ndarë nga elementet e tjera. */
+padding: 8px 16px;/* Vendos mbushje përreth tekstit brenda butonit për komoditet gjatë përdorimit. */
+}
+
+.blue_button:hover{
+box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.frms input[type="text"], input[type="number"], input[type="password"], input[type="file"],  textarea, select {
+background-color: #FFFFFF; /* Vendos ngjyrën e sfondit të bardhë për të gjithë elementet e formës, duke siguruar një pamje të pastër. */
+border: 2px solid #ABABAB;/* Shton një kufi të trashë 2px me ngjyrë gri të çelur rreth elementeve për të ndihmuar në përcaktimin e tyre vizual. */
+border-radius: 0.35em; /* Rrumbullakon këndet e kufijve për të ofruar një pamje më moderne dhe të butë. */
+height: 36px;/* Cakton lartësinë e elementeve të formës për uniformitet dhe për të lehtësuar përdorimin. */
+margin-bottom: 15px;/* Vendos një hapësirë të poshtme për të krijuar distancë ndërmjet elementeve të formës dhe për të përmirësuar organizimin vizual. */
+margin-top: 5px; /* Vendos një hapësirë sipër për të ndarë elementet nga teksti ose elementet e tjera që janë më lart në faqe. */
+padding-left:4px;/* Shton mbushje në të majtë të elementit për të siguruar një hapësirë të vogël ndërmjet tekstit dhe kufirit, duke e bërë tekstin më të lexueshëm. */
+width: 80%; /* Përcakton gjerësinë e elementeve të formës për të zënë 80% të hapësirës së prindit të tyre, duke siguruar një paraqitje të qëndrueshme. */
+font-size: 20px;/* Vendos madhësinë e tekstit në 20px për të rritur lexueshmërinë dhe për të bërë elementet e formës më të qarta. */
+font-weight: bold;/* Aplikon një stil të tekstit të trashë për të theksuar më shumë tekstin brenda elementeve të formës. */
+}
+.mainBlock {background: rgba(0, 128, 0, 0.75);
+        border: 2px solid #ABABAB;
+        border-radius: 16px;
+        color: #000000;
+        width:50%;
+        overflow: auto;
+        padding: 10px 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+
+h2{
+display: block;
+text-align: center;
+margin-top: 2px;
+text-decoration: underline;
+color: #B20202;
+text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px, 2px 2px 2px rgba(206,89,55,0);
+
+}
+
+h5{
+display: block;
+text-align: center;
+margin-top: 8px;
+margin-bottom: 8px;
+text-decoration: underline;
+font-size:26px;
+color: #B20202;
+text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px, 2px 2px 2px rgba(206,89,55,0);
+}
+
+#bodyInfo, #caloNum, #intakes{
+width:80%;
+margin-left: auto;
+margin-right: auto;
+}
+
+#bodyInfo td{
+vertical-align: middle;
+}
+
+.label{
+text-align: left;
+font-size: 24px;
+color: #A7DD3C;
+text-shadow: 2px 0 0px #800040, 3px 2px 0px rgba(77,0,38,0.5), 3px 0 3px #FF002B, 5px 0 3px #800015, 6px 2px 3px rgba(77,0,13,0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77,25,0,0.5), 9px 0 18px #FFD500, 11px 0 18px #806A00, 12px 2px 18px rgba(77,66,0,0.5), 12px 0 30px #D4FF00, 14px 0 30px #6A8000, 15px 2px 30px rgba(64,77,0,0.5), 15px 0 45px #80FF00, 17px 0 45px #408000, 17px 2px 45px rgba(38,77,0,0.5);
+
+}
+
+input[type="radio"]{
+background: none repeat scroll 0 0 #fff;
+border: 2px solid #ABABAB;
+height: 24px;
+padding-left:4px;
+width: 24px;
+font-size: 20px;
+font-weight: bold;
+margin-bottom: 15px;
+}
+
+caption{
+text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px, 2px 2px 2px rgba(206,89,55,0);
+color: #B20202;
+font-size: 28px;
+font-weight: bold;
+text-decoration: underline;
+margin-bottom: 8px;
+}
+
+#testDiv{
+position:absolute;
+left:6px;
+top:2px;
+color:#FFFFFF;
+font-size:20px;
+display: none;
+}
+
+#backBtn{
+position: absolute;
+float:right;
+right:8px;
+box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0);
+background-color: #468CD2;
+text-shadow: 1px 1px 0 #214D73;
+border-radius: 8px;
+color: #FFFFFF;
+cursor: pointer;
+font-size: 19px;
+font-weight: bold;
+padding: 2px 6px;
+}
+
+#backBtn:hover{
+box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}

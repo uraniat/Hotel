@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Rezervime</title>
+<meta name="viewport" content="width-device-width, initial-scale=1.0">
+<style>
+
+body{
+    background-color: #B0E0E6;
+}
+
+.container{
+    width: 300px;    
+    background-color: purple;
+    
+    display: block;
+    
+    margin: 0 auto;
+    
+    border-radius: 10px;
+    padding-bottom : 50px;
+}
+
+.app-title{
+    width: 300px;
+    height: 50px;
+    border-radius: 10px 10px 0 0;
+}
+
+.app-title p{
+    text-align: center;
+    padding: 15px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    color: #293251;
+}
+
+.notification{
+    background-color: #f8d7da;
+    display: none;
+}
+
+.notification p{
+    color: #721c24;
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.weather-container{
+    width: 300px;
+    height: 260px;
+    background-color: #F4F9FF;
+}
+
+.weather-icon{
+    width: 300px;
+    height: 128px;
+}
+
+.weather-icon img{
+    display: block;
+    margin: 0 auto;
+}
+
+.temperature-value{
+    width: 300px;
+    height:60px;
+}
+
+.temperature-value p{
+    padding: 0;
+    margin: 0;
+    color: #293251;
+    font-size: 4em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.temperature-value p:hover{
+    
+}
+
+.temperature-value span{
+    color: #293251;
+    font-size: 0.5em;
+}
+
+.temperature-description{
+    
+}
+
+.temperature-description p{
+    padding: 8px;
+    margin: 0;
+    color: #293251;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.location{
+    
+}
+
+.location p{
+    margin: 0;
+    padding: 0;
+    color: #293251;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+
+
+h1 {
+margin-left: 70px;
+}
+form li {
+list-style: none;
+margin-bottom: 5px;
+}
+
+form ul li label{
+float: left;
+clear: left;
+width: 100px;
+text-align: right;
+margin-right: 10px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
+}
+
+form ul li input, select, span {
+float: left;
+margin-bottom: 10px;
+}
+
+form textarea {
+float: left;
+width: 350px;
+height: 150px;
+}
+
+[type="submit"] {
+clear: left;
+margin: 20px 0 0 230px;
+font-size:18px
+}
+
+[type="reset"] {
+clear: left;
+margin: 20px 0 0 230px;
+font-size:18px
+}
+
+
+p {
+margin-left: 70px;
+font-weight: bold;
+}
+</style>
+
+
+
+</head>
+
+<body onload="document.registration.userid.focus();">
+
+
+<div class="container">
+        <div class="app-title">
+            <p>Weather</p>
+        </div>
+        <div class="notification"> </div>
+        <div class="weather-container">
+            <div class="weather-icon">
+                <img src="icons/unknown.png" alt="">
+            </div>
+            <div class="temperature-value">
+                <p>- °<span>C</span></p>
+            </div>
+            <div class="temperature-description">
+                <p> - </p>
+            </div>
+            <div class="location">
+                <p>-</p>
+            </div>
+        </div>
+    </div><br><br>
+
+
+<br><br>
+
+<h1>Rezervo dhomen tende!</h1>
+Ploteso te dhenat e meposhtme per te marre informacione nga stafi ne lidhje me rezervimin! 
+<form name='registration' onSubmit="return formValidation();">
+<ul>
+<li><label for="userid">Emri i perdoruesit:</label></li>
+<li><input type="text" name="userid" size="12" /></li>
+<li><label for="passid">Password:</label></li>
+<li><input type="password" name="passid" size="12" /></li>
+<li><label for="username">Emri:</label></li>
+<li><input type="text" name="username" size="50" /></li>
+<li><label for="address">Adresa:</label></li>
+<li><input type="text" name="address" size="50" /></li>
+<li><label for="country">Dhoma:</label></li>
+<li><select name="country">
+<option selected="" value="Default">(Zgjidh tipin e dhomes)</option>
+<option value="AF">Double</option>
+<option value="AL">Super double</option>
+<option value="DZ">Super double with view</option>
+</select></li>
+<li><label for="zip">ZIP Code:</label></li>
+<li><input type="text" name="zip" /></li>
+<li><label for="email">Email:</label></li>
+<li><input type="text" name="email" size="50" /></li>
+<li><label id="gender">Gjinia:</label></li>
+<li><input type="radio" name="msex" value="M" /><span>Male</span></li>
+<li><input type="radio" name="fsex" value="F" /><span>Female</span></li>
+<li><label>Keni femije:</label></li>
+<li><input type="checkbox" name="en" value="en" checked /><span>po</span></li>
+<li><input type="checkbox" name="nonen" value="noen" /><span>jo</span></li>
+<li><label for="desc">Shkruaj ndonj gje tjeter:</label></li>
+<li><textarea name="desc" id="desc"></textarea></li>
+<li><input type="submit" name="submit" value="Submit" /></li>
+<li>  <input type="reset" value="Reset"></li>
+</ul>
+</form>
+
+
+
+
+<script>
+
+
+
+
+function formValidation()
+{
+var uid = document.registration.userid;
+var passid = document.registration.passid;
+var uname = document.registration.username;
+var uadd = document.registration.address;
+var ucountry = document.registration.country;
+var uzip = document.registration.zip;
+var uemail = document.registration.email;
+var umsex = document.registration.msex;
+var ufsex = document.registration.fsex; if(userid_validation(uid,5,12))
+{
+if(passid_validation(passid,7,12))
+{
+if(allLetter(uname))
+{
+if(alphanumeric(uadd))
+{ 
+if(countryselect(ucountry))
+{
+if(allnumeric(uzip))
+{
+if(ValidateEmail(uemail))
+{
+if(validsex(umsex,ufsex))
+{
+}
+} 
+}
+} 
+}
+}
+}
+}
+return false;
+
+} function userid_validation(uid,mx,my)
+{
+var uid_len = uid.value.length;
+if (uid_len == 0 || uid_len >= my || uid_len < mx)
+{
+alert("mos te lihet ky vend bosh/ gjatesia "+mx+" to "+my);
+uid.focus();
+return false;
+}
+return true;
+}
+function passid_validation(passid,mx,my)
+{
+var passid_len = passid.value.length;
+if (passid_len == 0 ||passid_len >= my || passid_len < mx)
+{
+alert("Password nuk lihet bosh / gjatesia "+mx+" to "+my);
+passid.focus();
+return false;
+}
+return true;
+}
+function allLetter(uname)
+{ 
+var letters = /^[A-Za-z]+$/;
+if(uname.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('Emri te perbehet nga karaktere numerike');
+uname.focus();
+return false;
+}
+}
+function alphanumeric(uadd)
+{ 
+var letters = /^[0-9a-zA-Z]+$/;
+if(uadd.value.match(letters))
+{
+return true;
+}
+else
+{
+alert('Adresa e perdoruesit vetem nga karaktere numerike');
+uadd.focus();
+return false;
+}
+}
+function countryselect(ucountry)
+{
+if(ucountry.value == "Default")
+{
+alert('Zgjidhni dhomen nga lista');
+ucountry.focus();
+return false;
+}
+else
+{
+return true;
+}
+}
+function allnumeric(uzip)
+{ 
+var numbers = /^[0-1]+$/;
+if(uzip.value.match(numbers))
+{
+return true;
+}
+else
+{
+alert('ZIP code vetem vlera numerike si 1 dhe 0');
+uzip.focus();
+return false;
+}
+}
+function ValidateEmail(uemail)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(uemail.value.match(mailformat))
+{
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+uemail.focus();
+return false;
+}
+} function validsex(umsex,ufsex)
+{
+x=0;
+
+if(umsex.checked) 
+{
+x++;
+} if(ufsex.checked)
+{
+x++; 
+}
+if(x==0)
+{
+alert('zgjidh Mashkull/Femer');
+umsex.focus();
+return false;
+}
+else
+{
+alert('Forma u plotesua me sukses!');
+window.location.reload()
+return true;
+}
+}
+
+
+// SELECT ELEMENTS
+const iconElement = document.querySelector(".weather-icon");
+const tempElement = document.querySelector(".temperature-value p");
+const descElement = document.querySelector(".temperature-description p");
+const locationElement = document.querySelector(".location p");
+const notificationElement = document.querySelector(".notification");
+
+// nje aplikacion minimal per parashikimin e temperatures
+const weather = {};
+
+weather.temperature = {
+    unit : "celsius"
+}
+
+// APP CONSTS AND VARS
+const KELVIN = 273;
+// API KEY
+const key = "82005d27a116c2880c8f0fcb866998a0";
+
+// kontrollon nqs browseri e suporton lokacionin
+if('geolocation' in navigator){
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+}else{
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
+}
+
+// pecakto pozicionin
+function setPosition(position){
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    
+    getWeather(latitude, longitude);
+}
+
+// eeror kur ka gan=bim ne definimin e pozicionit
+function showError(error){
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = `<p> ${error.message} </p>`;
+}
+
+// marrja e parashikimeve
+function getWeather(latitude, longitude){
+    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+    
+    fetch(api)
+        .then(function(response){
+            let data = response.json();
+            return data;
+        })
+        .then(function(data){
+            weather.temperature.value = Math.floor(data.main.temp - KELVIN);
+            weather.description = data.weather[0].description;
+            weather.iconId = data.weather[0].icon;
+            weather.city = data.name;
+            weather.country = data.sys.country;
+        })
+        .then(function(){
+            displayWeather();
+        });
+}
+
+
+function displayWeather(){
+   
+    tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+    descElement.innerHTML = weather.description;
+    locationElement.innerHTML = `${weather.city}, ${weather.country}`;
+}
+
+// C to F conversion
+function celsiusToFahrenheit(temperature){
+    return (temperature * 9/5) + 32;
+}
+
+// WHEN THE USER CLICKS ON THE TEMPERATURE ELEMENET
+tempElement.addEventListener("click", function(){
+    if(weather.temperature.value === undefined) return;
+    
+    if(weather.temperature.unit == "celsius"){
+        let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
+        fahrenheit = Math.floor(fahrenheit);
+        
+        tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
+        weather.temperature.unit = "fahrenheit";
+    }else{
+        tempElement.innerHTML = `${weather.temperature.value}°<span>C</span>`;
+        weather.temperature.unit = "celsius"
+    }
+});
+
+
+</script>
+</body>
+</html
